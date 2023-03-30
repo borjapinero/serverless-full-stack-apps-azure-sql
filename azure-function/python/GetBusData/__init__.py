@@ -30,7 +30,7 @@ def main(GetBusData: func.TimerRequest) -> None:
     entities = get_bus_data_from_feed(GTFS_REAL_TIME_FEED)['entity']
     logging.info(monitored_routes)
 
-    # reformat the bus_feed to match the format of the monitored_route
+    # reformat the bus_feed to match the format of the monitored_routes
     monitored_buses = [get_monitored_format(bus['vehicle']) for bus in entities if get_route_id(bus) in monitored_routes]
     logging.info(f"{len(entities)} buses found. {len(monitored_buses)} buses monitored.")
     
